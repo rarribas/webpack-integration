@@ -2,23 +2,25 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  context: __dirname,
-
-  entry: {
-    index: './public/javascripts/index.js',
-    index_two: './public/javascripts/index_2.js',
-  },
-
-  // devtool: 'inline-source-map',
+  entry: './public/app/index.js',
 
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'public/dist')
+    filename: 'exordo.bundle.js',
+    path: path.resolve(__dirname, 'public/dist'),
   },
 
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.jst']
+    // alias: {
+    //   components: path.resolve(__dirname, 'public/app/components')
+    // }
   },
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      _: 'underscore',
+      JST: './templates',
+      I18n: './translations'
+    }),
+  ]
 };
