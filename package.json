@@ -6,12 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "dev_build": "webpack --watch --mode development"
+    "dev_build": "webpack --watch --mode development -display-error-details"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "backbone": "^1.3.3",
+    "jquery": "^3.3.1",
+    "underscore": "^1.9.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   }
